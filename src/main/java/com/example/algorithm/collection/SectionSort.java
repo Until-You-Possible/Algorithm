@@ -6,12 +6,12 @@ public class SectionSort {
 
     public SectionSort() {}
 
-    public static void sort(int[] arr) {
+    public static <E extends Comparable<E>> void sort(E[] arr) {
         for (int i = 0; i < arr.length; i++) {
             // find min index
             int minIndex = i;
             for (int j = i; j < arr.length; j++) {
-                if (arr[j] < arr[minIndex]) {
+                if (arr[j].compareTo(arr[minIndex]) < 0) {
                     minIndex = j;
                 }
                 swap(arr, i, minIndex);
@@ -19,15 +19,15 @@ public class SectionSort {
         }
     }
 
-    private static void swap(int[] arr, int i, int j) {
-        int t = arr[i];
+    private static <E> void swap(E[] arr, int i, int j) {
+        E t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;
 
     }
 
-    public static void main(String[] args) {
-        int[] arr = {1,2,6,8,7,9};
+    public static <E> void main(String[] args) {
+        Integer[] arr = {1,2,6,8,7,9};
         SectionSort.sort(arr);
         System.out.println("arr"+ Arrays.toString(arr));
     }
