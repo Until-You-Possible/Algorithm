@@ -3,9 +3,9 @@ package com.example.algorithm.collection.linearSearch;
 public class Search {
 
     // linear search
-    public static int linearSearch (int[] data, int target) {
+    public static <E> int linearSearch (E[] data, E target) {
         for (int i = 0; i < data.length; i++) {
-            if (data[i] == target) {
+            if (data[i].equals(target)) {
                 return i;
             }
         }
@@ -13,9 +13,14 @@ public class Search {
     }
 
     public static void main(String[] args) {
-        int[] data = {1,2,4,5,6,7,8,9};
+        Integer[] data = {1,2,4,5,6,7,8,9};
         int res = Search.linearSearch(data, 9);
-        System.out.println("res" + res);
+//        System.out.println("res" + res);
+
+        Team[] teams = {new Team("arthur"), new Team("wow"), new Team("sam")};
+        Team teamMember = new Team("wow");
+        int res1 = Search.linearSearch(teams, teamMember);
+        System.out.println("res00000  " + res1);
     }
 
 }
