@@ -1,4 +1,4 @@
-package com.example.algorithm.collection.insertOrder;
+package com.example.algorithm.demos.insertOrder;
 
 import java.util.Arrays;
 

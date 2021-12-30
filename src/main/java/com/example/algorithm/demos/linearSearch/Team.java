@@ -1,4 +1,4 @@
-package com.example.algorithm.collection.linearSearch;
+package com.example.algorithm.demos.linearSearch;
 
 
 public class Team {
