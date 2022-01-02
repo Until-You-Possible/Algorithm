@@ -4,9 +4,6 @@ public class IndexArray {
     private int[] data;
     private int size;
 
-    /**
-     *
-     */
     public IndexArray(int capacity) {
         data =  new int[capacity];
         size = 0;
@@ -64,13 +61,55 @@ public class IndexArray {
         return data[index];
     }
 
-    public int set(int index, int e) {
+    public void set(int index, int e) {
         // 检查参数
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("add failed, Required index >= 0 and index <= size");
         }
         data[index] = e;
     }
+
+    public boolean contains(int e) {
+        for (int i = 0; i < size; i++) {
+            if (e == data[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int find(int e) {
+        if (contains(e)) {
+            for (int i = 0; i < size; i++) {
+                if (data[i] == e) {
+                  return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public int remove(int index) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("add failed, Required index >= 0 and index <= size");
+        }
+        int current = data[index];
+        for (int i = 0; i < size; i++) {
+            data[i] = data[i+1];
+            size--;
+        }
+        return current;
+    }
+
+    public int removeFirst() {
+        return remove(0);
+    }
+
+    public int removeLast() {
+        return remove(size - 1);
+    }
+
+
 
     @Override
     public String toString() {
