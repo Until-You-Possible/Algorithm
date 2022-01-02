@@ -1,11 +1,11 @@
 package com.example.algorithm.demos.Array;
 
-public class IndexArray {
-    private int[] data;
+public class IndexArray<E> {
+    private E[] data;
     private int size;
 
     public IndexArray(int capacity) {
-        data =  new int[capacity];
+        data = (E[]) new Object[capacity];
         size = 0;
     }
 
@@ -25,16 +25,16 @@ public class IndexArray {
         return  size == 0;
     }
 
-    public void addLast(int e) {
+    public void addLast(E e) {
         add(size, e);
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
     // 在array中 添加e到index
-    public void add(int index, int e) {
+    public void add(int index, E e) {
         // 查看是否还有容量
         if (size == data.length) {
             throw new IllegalArgumentException("params is full");
@@ -53,7 +53,7 @@ public class IndexArray {
     }
 
     // get data
-    public int get(int index) {
+    public E get(int index) {
         // 检查参数
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("add failed, Required index >= 0 and index <= size");
@@ -61,7 +61,7 @@ public class IndexArray {
         return data[index];
     }
 
-    public void set(int index, int e) {
+    public void set(int index, E e) {
         // 检查参数
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("add failed, Required index >= 0 and index <= size");
@@ -69,19 +69,19 @@ public class IndexArray {
         data[index] = e;
     }
 
-    public boolean contains(int e) {
+    public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
-            if (e == data[i]) {
+            if (e.equals(data[i])) {
                 return true;
             }
         }
         return false;
     }
 
-    public int find(int e) {
+    public int find(E e) {
         if (contains(e)) {
             for (int i = 0; i < size; i++) {
-                if (data[i] == e) {
+                if (data[i].equals(e)) {
                   return i;
                 }
             }
@@ -89,24 +89,32 @@ public class IndexArray {
         return -1;
     }
 
-    public int remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("add failed, Required index >= 0 and index <= size");
         }
-        int current = data[index];
+        E current = data[index];
         for (int i = 0; i < size; i++) {
             data[i] = data[i+1];
             size--;
+            data[size] = null;
         }
         return current;
     }
 
-    public int removeFirst() {
+    public E removeFirst() {
         return remove(0);
     }
 
-    public int removeLast() {
+    public E removeLast() {
         return remove(size - 1);
+    }
+
+    public void removeElement(E e) {
+        int index = find(e);
+        if (index != -1) {
+            remove(index);
+        }
     }
 
 

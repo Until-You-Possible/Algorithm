@@ -3,7 +3,7 @@ package com.example.algorithm.demos.Array;
 public class Index {
 
     public static void main(String[] args) {
-        IndexArray indexArray = new IndexArray(20);
+        IndexArray<Integer> indexArray = new IndexArray<>(20);
         for (int i = 0;i < 10; i++) {
             indexArray.addLast(i);
         }
