@@ -1,4 +1,4 @@
-package com.example.algorithm.collection.sort;
+package com.example.algorithm.demos.sort;
 
 public class Student implements Comparable<Student>{
     /**
