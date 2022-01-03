@@ -25,15 +25,22 @@ public class IndexArray<E> {
         return  size == 0;
     }
 
+    // 时间复杂度 O(1)
     public void addLast(E e) {
         add(size, e);
     }
 
+    // 时间复杂度 O(n)
     public void addFirst(E e) {
         add(0, e);
     }
 
     // 在array中 添加e到index
+    // 时间复杂度 严格需要概率论严格的计算
+    // O(n/2) = O(n)
+
+    // 以上 添加的操作在算法复杂度上 总结可以是 O(n)的复杂度
+    // 在算法中 考虑最糟糕的情况
     public void add(int index, E e) {
         // 查看是否还有容量
         if (size == data.length) {
