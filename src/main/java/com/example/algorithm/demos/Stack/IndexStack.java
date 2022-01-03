@@ -1,8 +1,4 @@
 package com.example.algorithm.demos.Stack;
-
-import com.example.algorithm.demos.Array.Index;
-import com.example.algorithm.demos.Array.IndexArray;
-
 public class IndexStack {
 
     // 实现一个基本的栈
