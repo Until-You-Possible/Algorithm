@@ -94,4 +94,5 @@ public class LoopQueue<E> implements Queue<E> {
         res.append("]");
         return res.toString();
     }
+
 }
