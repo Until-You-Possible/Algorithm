@@ -49,6 +49,7 @@ public class LoopQueue<E> implements Queue<E> {
         tail  = size;
     }
 
+
     @Override
     public E dequeue() {
 
@@ -78,5 +79,19 @@ public class LoopQueue<E> implements Queue<E> {
     @Override
     public boolean isEmpty() {
         return front == tail;
+    }
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        res.append(String.format("Array: size= %d capacity= %d\n", size, getCapacity()));
+        res.append("[");
+        for (int i = 0; i != tail; i = (i + 1) % data.length) {
+            res.append(data[i]);
+            if ( (i + 1) % data.length != tail) {
+                res.append(", ");
+            }
+        }
+        res.append("]");
+        return res.toString();
     }
 }
