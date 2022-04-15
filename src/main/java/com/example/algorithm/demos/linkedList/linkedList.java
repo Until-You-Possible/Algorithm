@@ -73,6 +73,58 @@ public class linkedList<E> {
     public void addLast(E e) {
         add(size, e);
     }
+
+    public E get(int index) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("add failed, Illegal index");
+        }
+        Node current  = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.e;
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    public void set(int index, E e) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("add failed, Illegal index");
+        }
+        Node current = dummyHead.next;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        current.e = e;
+    }
+
+    public boolean contains(E e) {
+        Node current = dummyHead.next;
+        while(current != null) {
+            if (current.e.equals(e)) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        Node current = dummyHead.next;
+        while (current != null) {
+            stringBuilder.append(current).append(">");
+            current = current.next;
+        }
+        stringBuilder.append("NULL");
+        return stringBuilder.toString();
+    }
 }
 
 
