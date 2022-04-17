@@ -1,6 +1,6 @@
 package com.example.algorithm.demos.linkedList;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+//import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class linkedList<E> {
 
@@ -115,6 +115,30 @@ public class linkedList<E> {
         return false;
     }
 
+    public E remove(int index) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("remove failed, Illegal index");
+        }
+        // get current node
+        Node previousNode = dummyHead;
+        for (int i = 0; i < index; i++) {
+            previousNode = previousNode.next;
+        }
+        Node returnNode = previousNode.next;
+        previousNode.next = returnNode.next;
+        returnNode.next = null;
+        size--;
+        return returnNode.e;
+    }
+
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    public E removeLast() {
+        return remove(size -1);
+    }
+
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         Node current = dummyHead.next;
@@ -125,6 +149,7 @@ public class linkedList<E> {
         stringBuilder.append("NULL");
         return stringBuilder.toString();
     }
+
 }
 
 
