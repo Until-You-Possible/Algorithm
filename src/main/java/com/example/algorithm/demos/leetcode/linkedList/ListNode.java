@@ -7,4 +7,9 @@ public class ListNode {
     public ListNode(int x) {
         val = x;
     }
+
+    // 构建一个linked list
+    public ListNode (int[] arr) {
+
+    }
 }
