@@ -12,10 +12,6 @@ public class index {
         linkedList.add(2, 666);
         System.out.println(linkedList);
 
-        // 删除测试
-//        linkedList.removeFirst();
-//        System.out.println(linkedList);
-
         // 指定删除的位置
         linkedList.remove(5);
         System.out.println(linkedList);
